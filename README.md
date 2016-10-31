@@ -29,6 +29,6 @@ $rajaongkir->waybill($tracking_number, $courier);
 
 Full documentation can be found at the [wiki](http://github.com/ncaneldiee/rajaongkir/wiki).
 
-# License
+## License
 
 The MIT License (MIT). Please see [LICENSE](http://github.com/ncaneldiee/rajaongkir/blob/master/LICENSE.md) for more information.
