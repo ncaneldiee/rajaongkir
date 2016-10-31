@@ -27,8 +27,8 @@ $rajaongkir->cost($origin, $destination, $weight, $courier); // Get shipping cos
 $rajaongkir->waybill($tracking_number, $courier); // Track or find out delivery status
 ```
 
-Full documentation can be found at the [wiki](wiki).
+Full documentation can be found at the [wiki](http://github.com/ncaneldiee/rajaongkir/wiki).
 
 # License
 
-The MIT License (MIT). Please see [LICENSE](LICENSE.md) for more information.
+The MIT License (MIT). Please see [LICENSE](github.com/ncaneldiee/rajaongkir/blob/master/LICENSE.md) for more information.
