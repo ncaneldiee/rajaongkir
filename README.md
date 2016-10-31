@@ -31,4 +31,4 @@ Full documentation can be found at the [wiki](http://github.com/ncaneldiee/rajao
 
 # License
 
-The MIT License (MIT). Please see [LICENSE](github.com/ncaneldiee/rajaongkir/blob/master/LICENSE.md) for more information.
+The MIT License (MIT). Please see [LICENSE](http://github.com/ncaneldiee/rajaongkir/blob/master/LICENSE.md) for more information.
