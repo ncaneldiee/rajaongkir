@@ -22,9 +22,9 @@ use Ncaneldiee\Rajaongkir\Rajaongkir;
 
 $rajaongkir = new Rajaongkir(YOUR_API_KEY);
 
-$rajaongkir->cost($origin, $destination, $weight, $courier); // Get shipping cost and delivery time
+$rajaongkir->cost($origin, $destination, $weight, $courier);
 
-$rajaongkir->waybill($tracking_number, $courier); // Track or find out delivery status
+$rajaongkir->waybill($tracking_number, $courier);
 ```
 
 Full documentation can be found at the [wiki](http://github.com/ncaneldiee/rajaongkir/wiki).
