@@ -1,7 +1,7 @@
 <?php
 namespace Ncaneldiee\Rajaongkir;
 
-class RajaongkirInternational extends Rajaongkir
+class International extends Domestic
 {
     /**
      * Default account type.

@@ -3,7 +3,7 @@ namespace Ncaneldiee\Rajaongkir;
 
 use Ncaneldiee\Rajaongkir\Helper\Curl;
 
-class Rajaongkir
+class Domestic
 {
     /**
      * The name of the basic account.

@@ -1,5 +1,9 @@
 ## PHP Raja Ongkir API
 
+[![Latest Version](https://img.shields.io/github/release/ncaneldiee/rajaongkir.svg?style=flat-square)](https://github.com/ncaneldiee/rajaongkir/releases)
+[![Total Download](https://img.shields.io/packagist/dt/ncaneldiee/rajaongkir.svg?style=flat-square)](https://packagist.org/packages/ncaneldiee/rajaongkir)
+[![Software License](https://img.shields.io/github/license/ncaneldiee/rajaongkir.svg?style=flat-square)](https://github.com/ncaneldiee/rajaongkir/blob/master/LICENSE.md)
+
 A PHP library which implement the complete functionality of [Raja Ongkir API](http://rajaongkir.com/dokumentasi).
 
 ## Requirements
@@ -18,9 +22,9 @@ $ composer require ncaneldiee/rajaongkir
 ## Example
 
 ```php
-use Ncaneldiee\Rajaongkir\Rajaongkir;
+use Ncaneldiee\Rajaongkir;
 
-$rajaongkir = new Rajaongkir(YOUR_API_KEY);
+$rajaongkir = new Rajaongkir\Domestic(YOUR_API_KEY);
 
 $rajaongkir->cost($origin, $destination, $weight, $courier);
 
