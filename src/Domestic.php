@@ -57,9 +57,9 @@ class Domestic
      * @var array
      */
     protected $api_url = [
-        'basic' => 'http://rajaongkir.com/api/basic/',
-        'pro' => 'http://pro.rajaongkir.com/api/',
-        'starter' => 'http://rajaongkir.com/api/starter/',
+        'basic' => 'https://rajaongkir.com/api/basic/',
+        'pro' => 'https://pro.rajaongkir.com/api/',
+        'starter' => 'https://rajaongkir.com/api/starter/',
     ];
 
     /**
