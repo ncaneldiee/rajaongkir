@@ -25,8 +25,9 @@ class International extends Domestic
     protected $courier = [
         'basic' => [],
         'pro' => [
-            'pos' => 'POS Indonesia (POS)',
-            'tiki' => 'Citra Van Titipan Kilat (TIKI)',
+            'expedito' => 'Expedito Global Indonesia (EXPEDITO)',
+            'jne' => 'Jalur Nugraha Ekakurir (JNE)',
+            'slis' => 'Solusi Ekspres (SLIS)',
         ],
         'starter' => [
             'pos' => 'POS Indonesia (POS)',
@@ -55,14 +56,14 @@ class International extends Domestic
      * @param  string  $courier
      * @return object
      */
-    public function cost($origin, $destination, $shipment, $courier)
+    public function cost($origin, $destination, $shipment, $courier = null)
     {
         $courier = mb_strtolower($courier);
 
         $parameter = $this->shipment($shipment);
         $parameter['origin'] = $origin;
         $parameter['destination'] = $destination;
-        $parameter['courier'] = $courier;
+        $parameter['courier'] = $courier ?: implode(':', array_keys($this->courier));
 
         return $this->request($this->api_version . '/internationalCost', $parameter, 'POST');
     }

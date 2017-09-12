@@ -57,9 +57,9 @@ class Domestic
      * @var array
      */
     protected $api_url = [
-        'basic' => 'https://rajaongkir.com/api/basic/',
-        'pro' => 'https://pro.rajaongkir.com/api/',
-        'starter' => 'https://rajaongkir.com/api/starter/',
+        'basic' => 'https://rajaongkir.com/api/basic',
+        'pro' => 'https://pro.rajaongkir.com/api',
+        'starter' => 'https://rajaongkir.com/api/starter',
     ];
 
     /**
@@ -70,24 +70,23 @@ class Domestic
     protected $courier = [
         'basic' => [
             'esl' => 'Eka Sari Lorena (ESL)',
-            'jne' => 'Jalur Nugraha Ekakurir (JNE)',
             'pcp' => 'Priority Cargo and Package (PCP)',
-            'pos' => 'POS Indonesia (POS)',
             'rpx' => 'RPX Holding (RPX)',
-            'tiki' => 'Citra Van Titipan Kilat (TIKI)',
         ],
         'pro' => [
             'cahaya' => 'Cahaya Ekspress Logistik (CAHAYA)',
-            'esl' => 'Eka Sari Lorena (ESL)',
-            'jne' => 'Jalur Nugraha Ekakurir (JNE)',
+            'dse' => '21 Express (DSE)',
+            'first' => 'First Logistics (FIRST)',
+            'indah' => 'Indah Logistic (INDAH)',
+            'jet' => 'JET Express (JET)',
             'jnt' => 'J&T Express (J&T)',
+            'ncs' => 'Nusantara Card Semesta (NCS)',
             'pahala' => 'Pahala Kencana Express (PAHALA)',
             'pandu' => 'Pandu Logistics (PANDU)',
-            'pcp' => 'Priority Cargo and Package (PCP)',
-            'pos' => 'POS Indonesia (POS)',
-            'rpx' => 'RPX Holding (RPX)',
+            'sap' => 'SAP Express (SAP)',
             'sicepat' => 'Sicepat Ekspres (SICEPAT)',
-            'tiki' => 'Citra Van Titipan Kilat (TIKI)',
+            'slis' => 'Solusi Ekspres (SLIS)',
+            'star' => 'Star Cargo (STAR)',
             'wahana' => 'Wahana Prestasi Logistik (WAHANA)',
         ],
         'starter' => [
@@ -123,6 +122,20 @@ class Domestic
         $this->api_key = $api_key;
 
         $this->account_type = is_null($account_type) ? $this->account_type : mb_strtolower($account_type);
+
+        switch ($this->account_type) {
+            case 'pro':
+                $this->courier = array_merge($this->courier['starter'], $this->courier['basic'], $this->courier['pro']);
+                break;
+
+            case 'pro':
+                $this->courier = array_merge($this->courier['starter'], $this->courier['basic']);
+                break;
+
+            default:
+                $this->courier = $this->courier['starter'];
+                break;
+        }
     }
 
     /**
@@ -159,10 +172,10 @@ class Domestic
      * @param  string  $courier
      * @return object
      */
-    public function cost($origin, $destination, $shipment, $courier)
+    public function cost($origin, $destination, $shipment, $courier = null)
     {
         $parameter = $this->shipment($shipment);
-        $parameter['courier'] = $courier;
+        $parameter['courier'] = $courier ?: implode(':', array_keys($this->courier));
 
         if (is_array($origin) && is_array($destination)) {
             $parameter['origin'] = current($origin);
@@ -192,15 +205,13 @@ class Domestic
      */
     public function courier($courier = null)
     {
-        $data = array_merge(...array_values($this->courier));
-
         if ($courier) {
             $courier = mb_strtolower($courier);
 
-            return array_key_exists($courier, $data) ? $data[$courier] : $this->courier;
+            return array_key_exists($courier, $this->courier) ? $this->courier[$courier] : $this->courier;
         }
 
-        return (object) $data;
+        return (object) $this->courier;
     }
 
     /**
@@ -278,9 +289,9 @@ class Domestic
         ];
 
         if ('POST' === $method) {
-            $this->request = Curl::post($this->api_url[$this->account_type] . $endpoint, $parameter, $option);
+            $this->request = Curl::post($this->api_url[$this->account_type] . '/' . $endpoint, $parameter, $option);
         } else {
-            $this->request = Curl::get($this->api_url[$this->account_type] . $endpoint, $parameter, $option);
+            $this->request = Curl::get($this->api_url[$this->account_type] . '/' . $endpoint, $parameter, $option);
         }
 
         $this->response = [
