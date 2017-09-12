@@ -272,7 +272,9 @@ class Domestic
             CURLOPT_HTTPHEADER => [
                 'key: ' . $this->api_key,
             ],
-            CURLOPT_SSL_VERIFYPEER => false,
+            CURLOPT_SSL_VERIFYPEER => true,
+            CURLOPT_SSL_VERIFYHOST => 2,
+            CURLOPT_CAINFO => __DIR__ . DIRECTORY_SEPARATOR . 'Certificate' . DIRECTORY_SEPARATOR . 'cacert.pem',
         ];
 
         if ('POST' === $method) {
