@@ -272,6 +272,7 @@ class Domestic
             CURLOPT_HTTPHEADER => [
                 'key: ' . $this->api_key,
             ],
+            CURLOPT_SSL_VERIFYPEER => false,
         ];
 
         if ('POST' === $method) {
