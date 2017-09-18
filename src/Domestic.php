@@ -128,7 +128,7 @@ class Domestic
                 $this->courier = array_merge($this->courier['starter'], $this->courier['basic'], $this->courier['pro']);
                 break;
 
-            case 'pro':
+            case 'basic':
                 $this->courier = array_merge($this->courier['starter'], $this->courier['basic']);
                 break;
 
