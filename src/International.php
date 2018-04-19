@@ -23,16 +23,16 @@ class International extends Domestic
      * @var array
      */
     protected $courier = [
-        'basic' => [],
+        'basic' => [
+            'pos' => 'POS Indonesia (POS)',
+            'tiki' => 'Citra Van Titipan Kilat (TIKI)',
+        ],
         'pro' => [
             'expedito' => 'Expedito Global Indonesia (EXPEDITO)',
             'jne' => 'Jalur Nugraha Ekakurir (JNE)',
             'slis' => 'Solusi Ekspres (SLIS)',
         ],
-        'starter' => [
-            'pos' => 'POS Indonesia (POS)',
-            'tiki' => 'Citra Van Titipan Kilat (TIKI)',
-        ],
+        'starter' => [],
     ];
 
     /**
