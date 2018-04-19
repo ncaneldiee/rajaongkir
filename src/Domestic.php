@@ -57,9 +57,9 @@ class Domestic
      * @var array
      */
     protected $api_url = [
-        'basic' => 'https://rajaongkir.com/api/basic',
+        'basic' => 'https://api.rajaongkir.com/basic',
         'pro' => 'https://pro.rajaongkir.com/api',
-        'starter' => 'https://rajaongkir.com/api/starter',
+        'starter' => 'https://api.rajaongkir.com/starter',
     ];
 
     /**
@@ -80,6 +80,7 @@ class Domestic
             'indah' => 'Indah Logistic (INDAH)',
             'jet' => 'JET Express (JET)',
             'jnt' => 'J&T Express (J&T)',
+            'nss' => 'Nusantara Surya Sakti Express (NSS)',
             'ncs' => 'Nusantara Card Semesta (NCS)',
             'pahala' => 'Pahala Kencana Express (PAHALA)',
             'pandu' => 'Pandu Logistics (PANDU)',
@@ -300,7 +301,7 @@ class Domestic
             'error' => false,
         ];
 
-        if (isset($this->request->body)) {
+        if (isset($this->request->body) && isset($this->request->body->rajaongkir)) {
             if (200 === $this->request->body->rajaongkir->status->code) {
                 $this->response['code'] = $this->request->body->rajaongkir->status->code;
 
