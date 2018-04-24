@@ -4,7 +4,9 @@
 [![Total Download](https://img.shields.io/packagist/dt/ncaneldiee/rajaongkir.svg?style=flat-square)](https://packagist.org/packages/ncaneldiee/rajaongkir)
 [![Software License](https://img.shields.io/github/license/ncaneldiee/rajaongkir.svg?style=flat-square)](https://github.com/ncaneldiee/rajaongkir/blob/master/LICENSE.md)
 
-A PHP library which implement the complete functionality of [Raja Ongkir API](http://rajaongkir.com/dokumentasi).
+A PHP library which implement the complete functionality of [Raja Ongkir API](http://rajaongkir.com/dokumentasi). 
+
+Courier services : `jne`, `pos`, `tiki`, `esl`, `pcp`, `rpx`, `cahaya`, `dse`, `first`, `indah`, `jet`, `jnt`, `nss`, `ncs`, `pahala`, `pandu`, `sap`, `sicepat`, `slis`, `star`, `wahana`.
 
 ## Requirements
 
